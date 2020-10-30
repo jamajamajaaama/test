@@ -11,6 +11,7 @@ $similar_properties_args = array(
 	
     'post_type' => 'property',
     'posts_per_page' => $number_of_similar_properties,
+//added there parameter lang	
 	'lang' => 'lv',
     'post__not_in' => array( $inspiry_single_property->get_post_ID() ),
     'post_parent__not_in' => array( $inspiry_single_property->get_post_ID() ),    // to avoid child posts from appearing in similar properties
@@ -114,8 +115,13 @@ if ( $tax_count > 0 ) {
 			);
  //echo "<script>console.log(".$GLOBALS['wp_query']->request.");</script>";
 
-//$similar_properties_query = new WP_Query( array( 'lang' => 'ru'));
+
+//the query
+
 $similar_properties_query = new WP_Query( $similar_properties_args );
+
+
+
 
 //echo "<script>console.log(".$similar_properties_query->request.");</script>";
 
